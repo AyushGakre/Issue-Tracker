@@ -5,6 +5,7 @@ import "./theme-config.css"
 import NavBar from "./NavBar";
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from "@radix-ui/themes";
+import { Toaster } from "sonner";
 
 const inter = Inter(
   { subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <Theme accentColor="violet" radius="large" scaling="105%">
         <NavBar/>
         <main>{children}</main>
+        <Toaster position="bottom-right"/>
         </Theme>
         </body>
     </html>

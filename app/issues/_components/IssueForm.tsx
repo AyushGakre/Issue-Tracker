@@ -10,6 +10,7 @@ import { IconInfoCircle } from '@tabler/icons-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
+import { Toaster, toast } from 'sonner'
 
 
 interface IssueformData{
@@ -19,6 +20,7 @@ interface IssueformData{
 
 
 const IssueForm = ({issue}: {issue?: Issue}) => {
+  const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Sonner' }), 2000));
     const router = useRouter();
     const {register,control,handleSubmit, formState: {errors}}= useForm<IssueformData>({
       resolver: zodResolver(IssueSchema)
@@ -55,7 +57,20 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
         defaultValue={issue?.description}
         render={({ field })=> <SimpleMDE placeholder='Description' {...field}/>}
         />
-        <Button>{issue ? 'Update Issue': 'Submit new Issue'}</Button>
+        
+        
+        <Button onClick={
+          ()=>{
+            toast.promise(promise, {
+              loading: 'Loading...',
+              success: (data) => {
+                return `Issue added Successfully`;
+              },
+              error: 'Error',
+            });
+          }
+        }>{issue ? 'Update Issue': 'Submit new Issue'}</Button>
+        
     </form>
     </div>
   )

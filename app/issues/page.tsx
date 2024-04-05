@@ -4,8 +4,10 @@ import React from 'react'
 import StatusBadge from '../component/StatusBadge'
 
 
+
 const issuenav = async() => {
   const issues = await prisma.issue.findMany()
+
  
   return (
     
