@@ -10,7 +10,8 @@ import { IconInfoCircle } from '@tabler/icons-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
-import { Toaster, toast } from 'sonner'
+import {  toast } from 'sonner'
+import dynamic from 'next/dynamic';
 
 
 interface IssueformData{
@@ -44,6 +45,7 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
             else
             await axios.post('/api/issues',data);
             router.push('/issues')
+            router.refresh()
           }catch(error){
             setError('Unexpected Error Occurs');
           }

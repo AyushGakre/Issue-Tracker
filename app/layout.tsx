@@ -24,13 +24,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body className={inter.className} >
       <Theme accentColor="violet" radius="large" scaling="105%">
         <NavBar/>
         <main>{children}</main>
         <Toaster position="bottom-right"/>
+        <Toaster richColors  />
         </Theme>
         </body>
+        
     </html>
   );
 }

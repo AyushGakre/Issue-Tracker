@@ -9,6 +9,7 @@ import { FaPencilAlt, FaPencilRuler } from 'react-icons/fa'
 import { IconPencilCheck } from '@tabler/icons-react'
 import IssueButton from './IssueButton'
 import IssueDetails from './IssueDetails'
+import DeleteButton from './DeleteButton'
 
 interface Props {
     params: {id: string}
@@ -22,12 +23,15 @@ const Issuedetailpage = async({params} : Props) => {
         return notFound();
     }
   return (
-    <Grid className=' px-12 py-12' columns="2">
+    <Grid className=' px-12 py-12' columns="3">
         <Box >
         <IssueDetails issue={issue}/>
         </Box>
         <Box >
+            <Flex direction="column" gap="2">
             <IssueButton issueId={issue.id}/>
+            <DeleteButton issueId={issue.id}/>
+            </Flex>
         </Box>
     </Grid>
    
