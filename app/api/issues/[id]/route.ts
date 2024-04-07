@@ -49,4 +49,22 @@ export async function DELETE(
         return NextResponse.json({});
     }
 
-
+    export async function PUT(req: NextRequest,{params}:{ params: {id: string}}){
+        const body = await req.json()
+        const issue = await prisma.issue.findUnique({
+            where: {id : parseInt(params.id)}
+        })
+        if(!issue){
+            return NextResponse.json({error: 'Invalid issue'}, { status: 404})
+        }
+    
+        const updated = await prisma.issue.update({
+            where: {
+                id: issue.id
+            },
+            data:{
+                status: body.status
+            }
+        })
+        return NextResponse.json(updated);
+    }
