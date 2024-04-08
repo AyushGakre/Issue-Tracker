@@ -10,9 +10,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
 import {  toast } from 'sonner'
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-
+import dynamic from 'next/dynamic';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 
 interface IssueformData{
