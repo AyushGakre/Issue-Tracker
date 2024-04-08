@@ -10,9 +10,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
 import {  toast } from 'sonner'
-import 'react-quill/dist/quill.snow.css';
 import dynamic from 'next/dynamic';
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
+const SimpleMDE = dynamic(()=> import('react-simplemde-editor'),
+{ssr: false});
+
 
 
 interface IssueformData{
@@ -58,7 +60,7 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
         name='description'
         control={control}
         defaultValue={issue?.description}
-        render={({ field })=> <ReactQuill placeholder='Description' {...field}/>}
+        render={({ field })=> <SimpleMDE placeholder='Description' {...field}/>}
         />
         
         
