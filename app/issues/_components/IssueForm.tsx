@@ -1,7 +1,6 @@
 "use client";
 import { Button, Callout, Text, TextField } from '@radix-ui/themes'
 import React, { useState } from 'react'
-import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import {useForm,Controller} from "react-hook-form"
 import axios from 'axios';
@@ -11,7 +10,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
 import {  toast } from 'sonner'
-import dynamic from 'next/dynamic';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 
 interface IssueformData{
@@ -57,7 +58,7 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
         name='description'
         control={control}
         defaultValue={issue?.description}
-        render={({ field })=> <SimpleMDE placeholder='Description' {...field}/>}
+        render={({ field })=> <ReactQuill placeholder='Description' {...field}/>}
         />
         
         

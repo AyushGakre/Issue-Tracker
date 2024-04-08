@@ -12,9 +12,7 @@ const issuenav = async() => {
   return (
     
     <div className=' px-24 py-12'>
-      {/* <div className=' py-5 px-2'>
-      <Button  variant="surface"> <Link href="/issues/new">new Issue </Link> </Button>
-      </div> */}
+      
       <Table.Root variant='surface'>
         <Table.Header>
           <Table.Row>
