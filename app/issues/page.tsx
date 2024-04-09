@@ -42,4 +42,6 @@ const issuenav = async() => {
   )
 }
 
+export const revalidate = 0;
+
 export default issuenav
