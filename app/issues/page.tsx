@@ -2,6 +2,7 @@ import prisma from '@/prisma/client'
 import { Button, Link, Table } from '@radix-ui/themes'
 import React from 'react'
 import StatusBadge from '../component/StatusBadge'
+import NavBar from '../component/NavBar'
 
 
 
@@ -10,21 +11,21 @@ const issuenav = async() => {
 
  
   return (
-    
-    <div className=' px-24 py-12'>
+    <>
+    <div className=' px-32 py-12' >
       
-      <Table.Root variant='surface'>
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeaderCell>Issue</Table.ColumnHeaderCell>
+      <Table.Root variant='surface' size="3" layout="fixed">
+        <Table.Header >
+          <Table.Row align="center" >
+            <Table.ColumnHeaderCell >Issue</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className=' hidden md:table-cell' >Status</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className=' hidden md:table-cell'>Created</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
-        <Table.Body>
+        <Table.Body className='  font-medium'>
           {issues.map(issue =>(
             <Table.Row key={issue.id}>
-              <Table.Cell>
+              <Table.Cell >
                 <Link href={`/issues/${issue.id}`}>
                 {issue.title}
                 </Link>
@@ -38,7 +39,7 @@ const issuenav = async() => {
         </Table.Body>
       </Table.Root>
     </div>
-
+    </>
   )
 }
 

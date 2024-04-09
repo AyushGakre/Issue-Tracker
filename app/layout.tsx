@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./theme-config.css"
-import NavBar from "./NavBar";
+import NavBar from "./component/NavBar";
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from "@radix-ui/themes";
 import { Toaster } from "sonner";

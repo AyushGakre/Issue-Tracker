@@ -2,6 +2,7 @@
 import prisma from '@/prisma/client'
 import { notFound } from 'next/navigation'
 import IssueForm from '../../_components/IssueForm'
+import NavBar from '@/app/component/NavBar'
 
 interface Props {
     params: {id: string}
@@ -15,6 +16,7 @@ const page = async({params}: Props) => {
     }
   return (
     <>
+   
     <IssueForm issue={issue}/>
   
     </>

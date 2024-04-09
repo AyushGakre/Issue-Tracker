@@ -6,6 +6,7 @@ import DeleteButton from '../_components/DeleteButton'
 import IssueButton from '../_components/IssueButton'
 import IssueDetails from '../_components/IssueDetails'
 import StatusUpdate from '../_components/statusUpdate'
+import NavBar from '@/app/component/NavBar'
 
 
 interface Props {
@@ -21,6 +22,7 @@ const Issuedetailpage = async({params} : Props) => {
     }
    
   return (
+    <>
     <Grid className=' px-12 py-12 ' columns="4">
         <Box >
         <IssueDetails issue={issue}/>
@@ -33,6 +35,7 @@ const Issuedetailpage = async({params} : Props) => {
             </Flex>
         </Box>
     </Grid>
+    </>
    
   )
 }
