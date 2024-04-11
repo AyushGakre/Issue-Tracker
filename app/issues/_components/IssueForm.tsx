@@ -11,6 +11,7 @@ import { IssueSchema } from '@/validationSchema';
 import { Issue } from '@prisma/client';
 import {  toast } from 'sonner'
 import dynamic from 'next/dynamic';
+import { title } from 'process';
 
 const SimpleMDE = dynamic(()=> import('react-simplemde-editor'),
 {ssr: false});

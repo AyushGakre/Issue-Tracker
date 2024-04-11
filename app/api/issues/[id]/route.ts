@@ -6,7 +6,8 @@ import { NextRequest, NextResponse } from "next/server";
 export async function PATCH(
     request: NextRequest,
     {params}:{ params: {id: string}}){
-        const body =  await request.json();
+        const body =  await 
+        request.json();
         const validation = IssueSchema.safeParse(body);
         if(!validation.success){
             return NextResponse.json(validation.error.format(), { status: 400});
