@@ -23,12 +23,12 @@ const Issuedetailpage = async({params} : Props) => {
    
   return (
     <>
-    <Grid className=' px-12 py-12 ' columns="4">
+    <Grid columns="2" gap="3" rows="repeat(2, 64px)" width="auto" className=' px-10 py-10'>
         <Box >
         <IssueDetails issue={issue}/>
         </Box>
         <Box >
-            <Flex direction="column" gap="2">
+            <Flex direction="column" gap="2" width="200px">
             <IssueButton issueId={issue.id}/>
             <DeleteButton issueId={issue.id}/>
             <StatusUpdate issueId = {issue.id}/>
