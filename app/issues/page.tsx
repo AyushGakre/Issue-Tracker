@@ -1,25 +1,25 @@
 import prisma from '@/prisma/client'
-import { Button, Link, Table } from '@radix-ui/themes'
-import React from 'react'
+import { Link, Table } from '@radix-ui/themes'
 import StatusBadge from '../component/StatusBadge'
-import NavBar from '../component/NavBar'
+import delay from 'delay'
 
 
 
 const issuenav = async() => {
   const issues = await prisma.issue.findMany()
-
+  // await delay(4000)
  
   return (
     <>
     <div className=' px-32 py-12' >
       
-      <Table.Root variant='surface' size="3" layout="fixed">
+      <Table.Root variant='surface' size="2" layout="fixed">
         <Table.Header >
           <Table.Row align="center" >
             <Table.ColumnHeaderCell >Issue</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className=' hidden md:table-cell' >Status</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className=' hidden md:table-cell'>Created</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className=' hidden md:table-cell'>Last Updated</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body className='  font-medium'>
@@ -33,6 +33,7 @@ const issuenav = async() => {
               </Table.Cell>
               <Table.Cell className=' hidden md:table-cell'><StatusBadge status={issue.status}/></Table.Cell>
               <Table.Cell className=' hidden md:table-cell'>{issue.createdAt.toDateString()}</Table.Cell>
+              <Table.Cell className=' hidden md:table-cell'>{issue.updatedAt.toDateString()}</Table.Cell>
             </Table.Row>
           ))}
 

@@ -54,9 +54,10 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
             setError('Unexpected Error Occurs');
           }
             })}>
+            {errors.title && <Text color='red'>Title should not be Empty</Text>}
         <TextField.Root defaultValue={issue?.title} placeholder='Title' {...register('title')}>
         </TextField.Root>
-        {errors.title && <Text color='red'>Title should not be Empty</Text>}
+        {errors.title && <Text color='red'>Add Description </Text>}
         <Controller
         name='description'
         control={control}
@@ -65,6 +66,7 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
         />
         
         
+    
         <Button onClick={
           ()=>{
             toast.promise(promise, {
@@ -75,6 +77,7 @@ const IssueForm = ({issue}: {issue?: Issue}) => {
               error: 'Error',
             });
           }
+        
         }>{issue ? 'Update Issue': 'Submit new Issue'}</Button>
         
     </form>

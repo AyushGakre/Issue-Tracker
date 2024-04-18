@@ -23,7 +23,7 @@ const Issuedetailpage = async({params} : Props) => {
    
   return (
     <>
-    <Grid columns="2" gap="3" rows="repeat(2, 64px)" width="auto" className=' px-10 py-10'>
+    <Grid columns={{initial:'1', md:'2'}} gap="3" width="auto" className=' px-10 py-10'>
         <Box >
         <IssueDetails issue={issue}/>
         </Box>
