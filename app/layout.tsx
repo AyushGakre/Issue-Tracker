@@ -6,6 +6,7 @@ import NavBar from "./component/NavBar";
 import '@radix-ui/themes/styles.css';
 import { Theme, ThemePanel } from "@radix-ui/themes";
 import { Toaster } from "sonner";
+import Authentication from "./auth/provider";
 
 const inter = Inter(
   { subsets: ["latin"],
@@ -26,12 +27,14 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={inter.className} >
+        <Authentication>
       <Theme accentColor="violet" radius="large" scaling="105%">
         <NavBar/>
         <main>{children}</main>
         <Toaster position="bottom-right"/>
         <Toaster richColors  />
         </Theme>
+        </Authentication>
         </body>
         
     </html>
