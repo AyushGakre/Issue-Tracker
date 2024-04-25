@@ -1,7 +1,7 @@
 import prisma from '@/prisma/client'
-import { Link, Table } from '@radix-ui/themes'
+import { Table } from '@radix-ui/themes'
+import Link from "next/link"
 import StatusBadge from '../component/StatusBadge'
-import delay from 'delay'
 
 
 
@@ -11,8 +11,9 @@ const issuenav = async() => {
  
   return (
     <>
+  
     <div className=' px-32 py-12' >
-      
+
       <Table.Root variant='surface' size="2" layout="fixed">
         <Table.Header >
           <Table.Row align="center" >

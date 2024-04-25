@@ -1,22 +1,17 @@
 
 import React from 'react'
 import IssueForm from '../_components/IssueForm'
-import { Box, Flex, Grid } from '@radix-ui/themes'
-import CardStackDemo from '../_components/Cardstack'
+import { Flex } from '@radix-ui/themes'
 import delay from 'delay'
+import IssueStatusfilter from '../_components/issueStatusfilter'
 
 const page = async() => {
   // await delay(4000)
   return (
     <>
-    <Grid columns={{ initial: '1', sm: '2' }}  gap="3" width="auto">
-      <Box>
+    <Flex justify="center">
     <IssueForm/>
-    </Box>
-    <Box>
-      <CardStackDemo/>
-    </Box>
-    </Grid>
+    </Flex>
     </>
   )
 }

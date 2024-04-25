@@ -27,7 +27,7 @@ const{status, data:session}=useSession()
                   'hover:text-zinc-900 transition-colors': true
                 })
                 }
-                href={link.href}>{status === 'authenticated' && link.label}</Link></li>
+                href={link.href}>{status === 'authenticated' &&link.label}</Link></li>
                 )}
         </ul>
         </Flex>
@@ -44,9 +44,9 @@ const{status, data:session}=useSession()
                 {session.user?.email}
                 </Text>
               </DropdownMenu.Label>
-              <DropdownMenu.Item>
+            <button className=' bg-slate-200 text-red-600 text-base'>
                 <Link href="/api/auth/signout">Log out</Link>
-              </DropdownMenu.Item>
+                </button>
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         )

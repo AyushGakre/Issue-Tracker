@@ -4,8 +4,10 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Image from "next/image";
 import { Button } from "@radix-ui/themes";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export  default function HeroScrollDemo() {
+  const{status} = useSession();
   return (
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
@@ -39,7 +41,8 @@ export  default function HeroScrollDemo() {
               Create new Issue  </h1>
               </div>
               <div className="flex justify-center mt-2">
-      <Button color="cyan" variant="soft"> <Link href="/issues/new">new Issue </Link> </Button>
+     {status === 'unauthenticated' && <Button color="cyan" variant="soft"> <Link href="/api/auth/signin">Login</Link> </Button>}
+     {status === 'authenticated' && <Button color="cyan" variant="soft"> <Link href="/issues/new">New issue</Link> </Button>}
       </div>
       </div>
     </div>
